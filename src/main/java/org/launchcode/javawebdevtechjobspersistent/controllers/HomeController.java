@@ -60,11 +60,11 @@ public class HomeController {
         System.out.println("NEW JOB name: " + newJob.getName() + " employer: " + newJob.getEmployer());
         System.out.println("CLASS OF " + newJob.getEmployer() + " is " + newJob.getEmployer().getClass());
 
-//        model.addAttribute(new Job());
+        model.addAttribute(new Job());
 
         //add newJob to repository
-//        jobRepository.save(newJob);
-//        System.out.println("Job Save reached");
+        jobRepository.save(newJob);
+        System.out.println("Job Save reached");
 
         return "redirect:";
     }

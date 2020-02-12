@@ -1,10 +1,15 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 public class Job extends AbstractEntity{
 
+//    @NotNull(message = "Employer required")
     @ManyToOne
     private Employer employer;
 

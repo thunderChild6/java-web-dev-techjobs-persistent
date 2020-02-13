@@ -66,13 +66,10 @@ public class HomeController {
         //add skills to newJob
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         newJob.setSkills(skillObjs);
-        System.out.println("Skills reached: " +  skillObjs);
-        System.out.println("NEW JOB name: " + newJob.getName() + " employer: " + newJob.getEmployer() + ", skills: " + newJob.getSkills());
 
-        model.addAttribute(new Job());
+//        model.addAttribute(new Job());
         //add newJob to repository
         jobRepository.save(newJob);
-        System.out.println("Job Save reached");
 
         return "redirect:";
     }
@@ -80,7 +77,14 @@ public class HomeController {
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
 
-        return "view";
+        Optional optJob = jobRepository.findById(jobId);
+        if (optJob.isPresent()) {
+            Job job = (Job) optJob.get();
+            model.addAttribute("job", job);
+            return "view";
+        } else {
+            return "redirect:";
+        }
     }
 
 

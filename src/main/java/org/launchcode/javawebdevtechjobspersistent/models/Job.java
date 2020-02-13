@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 public class Job extends AbstractEntity{
 
-//    @NotNull(message = "Employer required")
     @ManyToOne
     private Employer employer;
 

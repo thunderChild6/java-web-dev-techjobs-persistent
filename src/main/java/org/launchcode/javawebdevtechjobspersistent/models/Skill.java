@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -18,8 +19,6 @@ public class Skill extends AbstractEntity {
     private List<Job> jobs = new ArrayList<>();
 
     //constructors
-
-
     public Skill(String description, List<Job> jobs) {
         this.description = description;
         this.jobs = jobs;
